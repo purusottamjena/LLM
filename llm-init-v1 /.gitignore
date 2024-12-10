@@ -1,0 +1,7 @@
+.env
+node_modules
+venv
+*venv*
+dev-store
+* copy*
+__pycache__

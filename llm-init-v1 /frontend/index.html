@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C/C++ Unit Test Case Generator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .upload-container {
+            border: 2px dashed #ccc;
+            padding: 20px;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+        #file-list {
+            margin-top: 10px;
+        }
+        #test-cases {
+            white-space: pre-wrap;
+            background-color: #f4f4f4;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+        .error {
+            color: red;
+            margin-top: 10px;
+        }
+        .input-type-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 15px;
+        }
+        .input-type-container label {
+            margin: 0 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>C/C++ Unit Test Case Generator</h1>
+        
+        <div class="input-type-container">
+            <label>
+                <input type="radio" name="input-type" value="file" checked> Local Files
+            </label>
+            <label>
+                <input type="radio" name="input-type" value="github"> GitHub URL
+            </label>
+        </div>
+
+        <div id="file-upload-container">
+            <div class="upload-container">
+                <input type="file" id="file-upload" multiple accept=".c,.h" />
+                <div id="file-list"></div>
+            </div>
+        </div>
+
+        <div id="github-upload-container" style="display: none;">
+            <label for="github-url">GitHub Repository URL:</label>
+            <input type="text" id="github-url" placeholder="https://github.com/username/repo" style="width: 100%;">
+        </div>
+
+        <div>
+            <label for="model-select">Select Model:</label>
+            <select id="model-select">
+                <option value="llama">Llama</option>
+                <option value="gemini">Gemini</option>
+            </select>
+        </div>
+
+        <button id="generate-btn" disabled>Generate Test Cases</button>
+
+        <div id="error-message" class="error"></div>
+        <pre id="test-cases"></pre>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
